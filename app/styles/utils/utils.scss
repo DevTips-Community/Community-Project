@@ -1,0 +1,79 @@
+// ==================
+// Misc
+// ==================
+
+$infinity: 9999;
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// ==================
+// Color
+// ==================
+
+@function grey( $level, $opacity: 1 ) {
+  $level: $level * 255;
+  @return rgba( $level, $level, $level, $opacity );
+}
+
+@function color( $hue, $saturation, $light, $mod-light: 0, $mod-saturation: 0, $opacity: 1, $contrast: 12% ) {
+  @return hsla( $hue, $saturation + ( $mod-saturation * $contrast ), brightness( $light + ( $mod-light * $contrast ) ), $opacity );
+}
+
+@function brightness( $brightness ) {
+  @if $brightness > 95% {
+    @return 95%;
+  }
+  @if $brightness < 10% {
+    @return 10%;
+  }
+  @return $brightness;
+}
+
+// ==================
+// Golden Ratio
+// ==================
+
+$golden: 1.618;
+
+$gld10:  1   / $golden;
+$gld9:   1   - $gld10;
+$gld8:   $gld9 / $golden;
+$gld7:   $gld9 - $gld8;
+$gld6:   $gld7 / $golden;
+$gld5:   $gld7 - $gld6;
+$gld4:   $gld5 / $golden;
+$gld3:   $gld5 - $gld4;
+$gld2:   $gld3 / $golden;
+$gld1:   $gld3 - $gld2;
+
+// ==================
+// Screen Sizes
+// ==================
+
+$xs: 480px;
+$sm: 768px;
+$md: 992px;
+$lg: 1200px;
+$xl: 1400px;
+$gg: 2000px;
+
+@mixin scr-in( $size: $sm ) {
+  @media( max-width: #{$size} ) {
+    @content;
+  }
+}
+
+@mixin scr-out( $size: $sm ) {
+  @media( min-width: #{$size} ) {
+    @content;
+  }
+}
