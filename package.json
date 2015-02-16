@@ -1,0 +1,13 @@
+{
+  "name": "deadline",
+  "version": "0.0.1",
+  "description": "A sadistic deadline app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DevTips/Community-Project"
+  },
+  "bugs": {
+    "url": "https://github.com/DevTips/Community-Project/issues"
+  },
+  "homepage": "https://github.com/DevTips/Community-Project"
+}
