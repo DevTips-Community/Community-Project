@@ -16,10 +16,7 @@ All scripts are combined using browserify, so use `require`, `module.exports`, a
 Make sure to work in your own branch until you are ready to merge.
 
 ## Gulp
-To automate builds we use gulp. The gulp commands you can use are listed below.
+To automate development we use gulp. The gulp commands you can use are listed below.
 
-`gulp assets:scripts`, `gulp assets:styles`, and `gulp assets:templates` all process their specific resources. `gulp assets` will compile all of them at once.
-
-`gulp dist` runs the assets task among others to format the `/dist` folder to be compiled using phonegap.
-
-`gulp watch` is used to speed up development time. This task sets up a server at `localhost:8000`. Navigate to `localhost:8000` in your browser and refresh whenever you make a change. If you have livereload installed ([chrome](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) version) and you enable it, the page will automagically refresh whenever you make changes.
+### app:*
+The gulp commands namespaced `app:` proccess app resources. Sample commands include `gulp app:scripts` and `gulp app:styles`. The `gulp app` command will start a server on localhost port 4240 that will host the preview and compile resources whenever you make changes. Normally you must refresh the page whenever you make a change, however if you have livereload installed ([chrome](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) version) and you enable it, the page will automagically refresh whenever you make changes.
