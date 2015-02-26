@@ -1,1 +1,2 @@
-var myApp = require('./app');
+require('./utils');
+require('./angular');
