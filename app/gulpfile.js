@@ -8,20 +8,20 @@ var autoprefixer = require('gulp-autoprefixer');
 
 var removeStar = function(path) { path.basename = path.basename.substr(1); };
 
-gulp.task('app:scripts', function() {
-  gulp.src('app/www/scripts/src/**/*.js')
+gulp.task('scripts', function() {
+  gulp.src('www/scripts/src/**/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 
-  gulp.src('app/www/scripts/src/[*]*.js')
+  gulp.src('www/scripts/src/[*]*.js')
     .pipe(browserify())
     .pipe(rename(removeStar))
-    .pipe(gulp.dest('app/www/scripts'))
+    .pipe(gulp.dest('www/scripts'))
     .pipe(connect.reload());
 });
 
-gulp.task('app:styles', function() {
-  gulp.src('app/www/styles/src/[*]*.scss')
+gulp.task('styles', function() {
+  gulp.src('www/styles/src/[*]*.scss')
     .pipe(sass({
       outputStyle: 'expanded',
       precision: 32,
@@ -30,23 +30,23 @@ gulp.task('app:styles', function() {
     }))
     .pipe(autoprefixer('last 2 versions'))
     .pipe(rename(removeStar))
-    .pipe(gulp.dest('app/www/styles'))
+    .pipe(gulp.dest('www/styles'))
     .pipe(connect.reload());
 });
 
-gulp.task('app:templates', function() {
-  gulp.src('app/www/**/*.html')
+gulp.task('templates', function() {
+  gulp.src('www/**/*.html')
     .pipe(connect.reload());
 });
 
-gulp.task('app', ['app:scripts', 'app:styles'], function() {
+gulp.task('watch', ['scripts', 'styles'], function() {
   connect.server({
     port: 4240,
-    root: 'app/www',
+    root: 'www',
     livereload: true
   });
 
-  gulp.watch('app/www/scripts/src/**/*.js', ['app:scripts']);
-  gulp.watch('app/www/styles/src/**/*.scss', ['app:styles']);
-  gulp.watch('app/www/**/*.html', ['app:templates']);
+  gulp.watch('www/scripts/src/**/*.js', ['scripts']);
+  gulp.watch('www/styles/src/**/*.scss', ['styles']);
+  gulp.watch('www/**/*.html', ['templates']);
 });
