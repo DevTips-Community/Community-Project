@@ -15,8 +15,5 @@ All scripts are combined using browserify, so use `require`, `module.exports`, a
 
 Make sure to work in your own branch until you are ready to merge.
 
-## Gulp
-To automate development we use gulp. The gulp commands you can use are listed below.
-
-### app:*
-The gulp commands within app directory will process app resources. Sample commands include `gulp scripts` and `gulp styles`. The `gulp` command will start a server on localhost port 4240 that will host the preview and compile resources whenever you make changes. Normally you must refresh the page whenever you make a change, however if you have livereload installed ([chrome](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) version) and you enable it, the page will automagically refresh whenever you make changes.
+## Building
+To automate frontend development we use gulp. The gulp commands within app directory will process app resources. Commands include `gulp scripts` and `gulp styles`. The `gulp` command will start a server on localhost port 4240 that will host the preview and compile resources whenever you make changes. Normally you must refresh the page whenever you make a change, however if you have livereload installed ([chrome](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) version) and you enable it, the page will automagically refresh whenever you make changes.
