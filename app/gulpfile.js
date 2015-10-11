@@ -39,7 +39,7 @@ gulp.task('templates', function() {
     .pipe(connect.reload());
 });
 
-gulp.task('watch', ['scripts', 'styles'], function() {
+gulp.task('default', ['scripts', 'styles'], function() {
   connect.server({
     port: 4240,
     root: 'www',
